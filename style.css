@@ -11,3 +11,16 @@
 .nav-link:hover {
     color: #0066ff;
 }
+
+#project-section {
+    margin-top: 300px;
+    padding: 50px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#project-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid black;
+    transition: all 0.3s ease;
+}
