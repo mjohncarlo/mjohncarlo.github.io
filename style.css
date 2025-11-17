@@ -58,6 +58,13 @@ h1, h2, h3, h4, h5, h6 {
 .hero-icon {
     font-size: clamp(1.3rem, 1.5vw, 1.6rem);
     color: black;
+    transition: transform 0.3s, color 0.3s;
+    display: inline-block;
+}
+
+.hero-icon:hover {
+    color:blue;
+    transform: scale(1.2);
 }
 
 #about-sec {
