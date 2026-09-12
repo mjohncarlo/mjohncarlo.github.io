@@ -1,0 +1,10 @@
+    .profile-card {
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    .section-divider {
+        border-top-width: 2px;
+    }
