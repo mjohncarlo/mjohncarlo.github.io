@@ -8,3 +8,40 @@
     .section-divider {
         border-top-width: 2px;
     }
+
+    html {
+        scroll-snap-type: y proximity;
+        scroll-behavior: smooth;
+    }
+
+    .portfolio-section {
+        min-height: 100vh;
+        scroll-snap-align: start;
+    }
+
+    .projects-section {
+        background-color: #f8f9fa;
+        border-radius: 0;
+        padding-inline: clamp(1rem, 7vw, 8rem);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+            scroll-snap-type: none;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .profile-card {
+            position: sticky;
+            top: 2rem;
+            align-self: flex-start;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .profile-card {
+            position: static;
+        }
+    }
