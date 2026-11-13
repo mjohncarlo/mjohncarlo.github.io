@@ -12,6 +12,18 @@
 </head>
 
 <body>
+    <div class="container sticky-top pt-4">
+        <div class="row justify-content-end">
+            <div class="col-12 col-md-3">
+                <nav class="nav p-3 gap-3">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
     <div class="container py-5 portfolio-section">
         <div class="row">
             <div class="col-12 col-lg-4 profile-card text-center">
@@ -199,72 +211,14 @@
         </div>
     </div>
 
-    <div class="container-fluid py-5 portfolio-section projects-section">
+    <div id="projects" class="container-fluid py-5 portfolio-section projects-section">
         <section class="mb-5">
             <h2 class="text-center">Projects</h2>
 
-            <div class="row mt-3 g-4">
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img src="assets/images/Mt. Pulag.png" alt="Project 1" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title h5">Explore Mt. Pulag</h3>
-                            <p class="card-text text-body-secondary">
-                                A responsive travel and hiking guide website developed as a school project, showcasing
-                                Mount Pulag’s hiking trails, cultural heritage, climate, and scenic highlights.
-                            </p>
-                            <div class="d-flex gap-2">
-                                <a href="https://github.com/mjohncarlo/Mount-Pulag"
-                                    class="btn btn-sm btn-outline-secondary">Source Code</a>
-                                <a href="https://mjohncarlo.github.io/Mount-Pulag/"
-                                    class="btn btn-sm btn-outline-secondary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img src="assets/images/WRC.png" alt="Project 2" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title h5">WRC Gallery</h3>
-                            <p class="card-text text-body-secondary">
-                                A responsive, image-focused website developed as a school project, showcasing iconic
-                                World Rally Championship cars and rally tracks.
-                            </p>
-                            <div class="d-flex gap-2">
-                                <a href="https://github.com/mjohncarlo/Gallery"
-                                    class="btn btn-sm btn-outline-secondary">Source Code</a>
-                                <a href="https://mjohncarlo.github.io/Gallery/"
-                                    class="btn btn-sm btn-outline-secondary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img src="assets/images/ValoHub.png" alt="Project 3" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title h5">ValoHub</h3>
-                            <p class="card-text text-body-secondary">
-                                A responsive Valorant information browser developed as a school project, using the
-                                Valorant API to let users explore agents, weapons, categories, and statistics.
-                            </p>
-                            <div class="d-flex gap-2">
-                                <a href="https://github.com/mjohncarlo/API"
-                                    class="btn btn-sm btn-outline-secondary">Source Code</a>
-                                <a href="https://mjohncarlo.github.io/API/"
-                                    class="btn btn-sm btn-outline-secondary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <div id="project-gallery" class="project-gallery mt-4" aria-live="polite"></div>
         </section>
     </div>
+    <script type="module" src="assets/js/project-gallery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
         </script>
