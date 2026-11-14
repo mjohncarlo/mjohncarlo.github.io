@@ -1,7 +1,46 @@
 import { projects } from "./projects.js";
 
+const section = document.querySelector("#projects");
 const gallery = document.querySelector("#project-gallery");
 let activeProjectId = projects[0]?.id;
+
+function scrollPerProject() {
+    return window.innerHeight * 0.6;
+}
+
+function getTrack() {
+    return gallery.querySelector(".project-gallery-track");
+}
+
+function updateSectionHeight() {
+    section.style.height = `${window.innerHeight + scrollPerProject() * projects.length}px`;
+}
+
+function projectIndexFromScroll() {
+    const progress = window.scrollY - section.offsetTop;
+    const index = Math.floor(progress / scrollPerProject());
+    return Math.min(Math.max(index, 0), projects.length - 1);
+}
+
+function scrollTrackToPanel(panel, behavior = "smooth") {
+    const track = getTrack();
+    const panelLeft = panel.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+    const panelRight = panelLeft + panel.offsetWidth;
+    let target = track.scrollLeft;
+
+    if (panelLeft < track.scrollLeft) {
+        target = panelLeft;
+    } else if (panelRight > track.scrollLeft + track.clientWidth) {
+        target = panelRight - track.clientWidth;
+    }
+
+    track.scrollTo({ left: target, behavior });
+}
+
+function scrollPageToProject(projectId) {
+    const index = projects.findIndex((project) => project.id === projectId);
+    window.scrollTo({ top: section.offsetTop + scrollPerProject() * index + 1, behavior: "smooth" });
+}
 
 function linkMarkup(url, className, label) {
     if (!url) {
@@ -50,18 +89,36 @@ function selectProject(panel) {
     });
 
     panel.addEventListener("transitionend", () => {
-        panel.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+        if (panel.dataset.projectId === activeProjectId) {
+            scrollTrackToPanel(panel);
+        }
     }, { once: true });
 }
 
+function handlePageScroll() {
+    const project = projects[projectIndexFromScroll()];
+    selectProject(gallery.querySelector(`[data-project-id="${project.id}"]`));
+}
+
+function handleResize() {
+    updateSectionHeight();
+    const activePanel = gallery.querySelector(".project-panel-featured");
+    if (activePanel) {
+        scrollTrackToPanel(activePanel, "instant");
+    }
+}
+
 function handleGalleryClick(event) {
-    selectProject(event.target.closest(".project-panel"));
+    const panel = event.target.closest(".project-panel");
+    if (panel && panel.dataset.projectId !== activeProjectId) {
+        scrollPageToProject(panel.dataset.projectId);
+    }
 }
 
 function handleGalleryKeydown(event) {
     if ((event.key === "Enter" || event.key === " ") && event.target.matches(".project-panel")) {
         event.preventDefault();
-        selectProject(event.target);
+        scrollPageToProject(event.target.dataset.projectId);
     }
 }
 
@@ -69,4 +126,8 @@ if (gallery && projects.length > 0) {
     gallery.addEventListener("click", handleGalleryClick);
     gallery.addEventListener("keydown", handleGalleryKeydown);
     renderProjects();
+    updateSectionHeight();
+    handlePageScroll();
+    window.addEventListener("scroll", handlePageScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
 }
