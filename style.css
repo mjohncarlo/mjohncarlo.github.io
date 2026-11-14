@@ -167,6 +167,35 @@
         background-color: #fefefe;
     }
 
+    .nav a,
+    .profile-card a {
+        color: #343a40;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 200ms ease;
+    }
+
+    .nav a {
+        background: linear-gradient(#000, #000) no-repeat left bottom / 0 2px;
+        transition: color 200ms ease, background-size 200ms ease;
+    }
+
+    .profile-card a i {
+        color: #000;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible,
+    .profile-card a:hover,
+    .profile-card a:focus-visible {
+        color: #000;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+        background-size: 100% 2px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
         html {
             scroll-behavior: auto;
