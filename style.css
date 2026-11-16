@@ -5,6 +5,14 @@
         background-color: #fff;
     }
 
+    .section-intro {
+        max-width: 40rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
     .section-divider {
         border-top-width: 2px;
     }
@@ -31,15 +39,18 @@
         display: flex;
         align-items: center;
         height: 100vh;
-        padding-inline: clamp(1rem, 7vw, 8rem);
+        padding: 6.5rem clamp(1rem, 3vw, 3rem) 0.5rem;
     }
 
     .projects-pin > section {
         width: 100%;
+        max-width: 112rem;
+        margin-inline: auto;
         margin-bottom: 0 !important;
     }
 
     .project-gallery {
+        margin-top: clamp(1.5rem, 3.5vh, 2.5rem);
         padding: 0;
         border-radius: 1.25rem;
         background: transparent;
@@ -48,7 +59,7 @@
     .project-gallery-track {
         display: flex;
         gap: 1rem;
-        height: 24rem;
+        height: clamp(20rem, calc(100vh - 14.5rem), 46rem);
         overflow: hidden;
     }
 
@@ -149,7 +160,7 @@
 
     @media (max-width: 767.98px) {
         .project-gallery-track {
-            height: 22rem;
+            height: clamp(18rem, calc(100vh - 17rem), 32rem);
         }
 
         .project-panel {
