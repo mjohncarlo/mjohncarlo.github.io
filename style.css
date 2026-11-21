@@ -1,3 +1,78 @@
+    .hero {
+        --hero-paper: #e9ecef;
+        --hero-ink: #212529;
+        --hero-text: #495057;
+
+        position: relative;
+        height: 100vh;
+        min-height: 32rem;
+        overflow: hidden;
+        background-color: var(--hero-paper);
+        color: var(--hero-ink);
+        font-family: "Covered By Your Grace", "Comic Sans MS", cursive;
+        scroll-snap-align: start;
+    }
+
+    .hero-title {
+        margin: 0;
+        font-family: inherit;
+        font-weight: 400;
+        line-height: 0.8;
+    }
+
+    .hero-greeting,
+    .hero-name,
+    .hero-text {
+        position: absolute;
+    }
+
+    .hero-greeting {
+        top: 10vh;
+        left: 5.6vw;
+        font-size: clamp(3.5rem, 9.4vw, 8rem);
+        transform: rotate(-4deg);
+    }
+
+    .hero-name {
+        bottom: -0.23em;
+        left: -0.05em;
+        font-size: min(50vw, 80vh);
+        letter-spacing: -0.02em;
+        transform: rotate(-3deg);
+    }
+
+    .hero-text {
+        z-index: 1;
+        top: 12vh;
+        right: 6.25vw;
+        width: clamp(16rem, 26.5vw, 24rem);
+        margin: 0;
+        color: var(--hero-text);
+        font-size: clamp(1.2rem, 2.35vw, 2rem);
+        line-height: 1.3;
+        text-align: right;
+        transform: rotate(2deg);
+    }
+
+    @media (max-width: 767.98px) {
+        .hero-greeting {
+            top: 8vh;
+            left: 1.25rem;
+            font-size: 18vw;
+        }
+
+        .hero-name {
+            font-size: min(72vw, 60vh);
+        }
+
+        .hero-text {
+            top: calc(8vh + 24vw);
+            right: 1.25rem;
+            width: min(75vw, 20rem);
+            font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+        }
+    }
+
     .profile-card {
         padding: 2rem;
         border-radius: 1rem;
@@ -293,6 +368,30 @@
         }
     }
 
+    .site-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-1rem);
+        transition: opacity 350ms ease, transform 350ms ease, visibility 0s linear 350ms;
+    }
+
+    .site-nav-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: opacity 350ms ease, transform 350ms ease, visibility 0s;
+    }
+
+    .site-nav .nav {
+        pointer-events: auto;
+    }
+
     .nav {
         border-radius: 15px;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -332,6 +431,11 @@
         html {
             scroll-behavior: auto;
             scroll-snap-type: none;
+        }
+
+        .site-nav,
+        .site-nav-visible {
+            transition: none;
         }
     }
 
