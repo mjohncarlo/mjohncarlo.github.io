@@ -30,13 +30,14 @@
     <section id="hero" class="hero">
         <h1 class="hero-title">
             <span class="hero-greeting">Hi i'm</span>
-            <span class="hero-name">carlo</span>
+            <span class="hero-name">car<span class="l-slot">l</span>o</span>
         </h1>
         <p class="hero-text">
             I enjoy exploring technology, turning ideas into reality, and learning something new with every project.
         </p>
     </section>
 
+    <div class="pen-pin">
     <div class="container py-5 portfolio-section">
         <div class="row">
             <div class="col-12 col-lg-4 profile-card text-center">
@@ -74,7 +75,7 @@
             <div class="col-12 col-lg-8 ps-lg-5 mt-5 mt-lg-0">
 
                 <section class="mb-5">
-                    <h2>Skills</h2>
+                    <h2 data-pen-text="Skills">Skills</h2>
                     <p class="section-intro text-body-secondary">
                         The skills I’ve built, the concepts I’ve explored, and the foundation behind every project I
                         create.
@@ -115,7 +116,7 @@
                 </section>
 
                 <section class="mb-5">
-                    <h2>Tools & Technologies</h2>
+                    <h2 data-pen-text="Tools &amp; Technologies">Tools & Technologies</h2>
                     <p class="section-intro text-body-secondary">
                         The tools I use to bring ideas to life, solve problems, and turn concepts into working
                         applications.
@@ -143,7 +144,7 @@
                 </section>
 
                 <section class="mb-5">
-                    <h2>Education</h2>
+                    <h2 data-pen-text="Education">Education</h2>
 
                     <div class="timeline-card mt-4">
                         <ol class="timeline">
@@ -172,6 +173,8 @@
         </div>
     </div>
 
+        <div class="pen-pin-spacer" aria-hidden="true"></div>
+    </div>
     <div id="projects" class="projects-section">
         <div class="container-fluid projects-pin">
             <section class="mb-5">
@@ -216,7 +219,10 @@
             <hr class="section-divider">
         </section>
     </div>
+    <div class="pen-float" aria-hidden="true"></div>
+    <canvas class="pen-canvas" aria-hidden="true"></canvas>
     <script type="module" src="assets/js/site-nav.js"></script>
+    <script type="module" src="assets/js/pen/pen-animation.js"></script>
     <script type="module" src="assets/js/project-gallery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
